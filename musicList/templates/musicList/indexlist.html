@@ -29,19 +29,18 @@
             width: 100%;
             z-index: 1;
             height: 77px;
-
         }
 
-        .nav-content {
-            padding: 16px;
+        .nav-logo  {
+            width:100%;
+            margin:0 auto;
+            text-align:center;
         }
 
-        .nav-logo {
-            background-image: url(/static/866b2a01d908.png);
-            background-size: 435px 406px;
-            background-position: 0 -134px;
-            height: 35px;
-            width: 176px;
+        .logo {
+            max-width:100%;
+            margin-top: 10px;
+            width: 150px;
         }
 
 
@@ -130,9 +129,9 @@
 <body>
 
     <nav class="nav-container">
-        <div class="nav-content">
-            <div class="nav-logo"></div>
-        </div>
+            <div class="nav-logo">
+                <a href="http://127.0.0.1:8000/musicList/list"><img class="logo" src="{% static "LOGO.png" %}"/></a>
+            </div>
     </nav>
 
     <article class="article-container">
