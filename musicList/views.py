@@ -5,8 +5,8 @@ from musicList.forms import PostForm
 
 # Create your views here.
 def list(request):
-    full_list = Post.objects.all()
-    return render_to_response('musicList/indexlist.html', {'full_list': full_list})
+    contents = Post.objects.all()
+    return render_to_response('musicList/indexlist.html', {'contents': contents})
 
 def create(request):
     if request.method == 'POST':

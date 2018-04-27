@@ -2,14 +2,14 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>게시글 작성</title>
+    <title>댓글 남기기</title>
 </head>
 <body>
     <div>
         <form method="POST">
             {% csrf_token %}
             <table class="table">
-                {{ form.as_table }}
+                {{ comment_form.as_table }}
             </table>
             <button type="submit">저장</button>
         </form>
