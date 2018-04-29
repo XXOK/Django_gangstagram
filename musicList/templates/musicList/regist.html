@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <style>
+    body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 18px;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="mdl-grid">
+<div class="mdl-layout mdl-js-layout mdl-color--grey-100">
+	<main class="mdl-layout__content">
+		<div class="mdl-card mdl-shadow--6dp">
+			<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+				<h2 class="mdl-card__title-text">회원가입</h2>
+			</div>
+	  	<div class="mdl-card__supporting-text">
+				<form id="new_user_form" method="POST">{% csrf_token %}
+				    <div class="mdl-textfield mdl-js-textfield">
+						<input class="mdl-textfield__input" type="text" id="name" />
+						<label class="mdl-textfield__label" for="name">Name</label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield">
+						<input class="mdl-textfield__input" type="text" id="email" />
+						<label class="mdl-textfield__label" for="email">Email</label>
+					</div>
+            		<div class="mdl-textfield mdl-js-textfield">
+						<input class="mdl-textfield__input" type="password" id="password" />
+						<label class="mdl-textfield__label" for="password">Password</label>
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<input type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="SUBMIT">
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</main>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).on('submit','.mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect',function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'POST',
+            url:'/musicList/register',
+            data:{
+                name:$('#name').val(),
+                email:$('#email').val(),
+                password:$('#password').val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+            },
+            sucess:function(){
+				alert("i'm really tired");
+        });
+    });
+</script>
+</html>
