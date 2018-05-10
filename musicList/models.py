@@ -10,6 +10,6 @@ class Post(models.Model):
             default=timezone.now)
 
 class User(models.Model):
-    name = models.CharField(max_length=32, null=True)
+    username = models.CharField(max_length=32, null=True)
     email = models.EmailField(null=True)
     password = models.CharField(max_length=128, null=True)

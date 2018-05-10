@@ -31,8 +31,8 @@
 	  	<div class="mdl-card__supporting-text">
 				<form id="new_user_form" method="POST">{% csrf_token %}
 				    <div class="mdl-textfield mdl-js-textfield">
-						<input class="mdl-textfield__input" type="text" id="name" />
-						<label class="mdl-textfield__label" for="name">Name</label>
+						<input class="mdl-textfield__input" type="text" id="username" />
+						<label class="mdl-textfield__label" for="username">Name</label>
 					</div>
 					<div class="mdl-textfield mdl-js-textfield">
 						<input class="mdl-textfield__input" type="text" id="email" />
@@ -61,7 +61,7 @@
             type:'POST',
             url:'/musicList/register',
             data:{
-                name:$('#name').val(),
+                username:$('#username').val(),
                 email:$('#email').val(),
                 password:$('#password').val(),
                 csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),

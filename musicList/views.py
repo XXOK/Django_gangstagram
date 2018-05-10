@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response,render, redirect, HttpResponse
-from musicList.models import Post, User
+from django.contrib.auth.models import User
+from musicList.models import Post
 from musicList.forms import PostForm
 
 
@@ -22,15 +23,16 @@ def create(request):
 
 def register(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
+        username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        User.objects.create(
-            name = name,
+        User.objects.create_user(
+            username = username,
             email = email,
             password = password,
         )
         return list(request)
+
     else:
         return render(request, 'musicList/regist.html')
